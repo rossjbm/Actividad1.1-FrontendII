@@ -1,3 +1,4 @@
+var gene;
 
 export function Renderizar({resultado}) {
 
@@ -7,9 +8,9 @@ export function Renderizar({resultado}) {
     if (!resultado || resultado.length === 0) {
         return (<p>No Se Encontraron Resultados</p>)
     } else {
-        return (<>
+        return (<div className="p-5 bg-green-200 grid ">
             {resultado.map((libro, i) => (
-                <section key={i}>
+                <section key={i} className="bg-beige-200 p-5 rounded-lg">
                     <div>
                         <p>{libro.serial}</p>
                         <div>
@@ -24,9 +25,11 @@ export function Renderizar({resultado}) {
                         </div>
                         <div>
                             <h2>{libro.titulo}</h2>
-                            <div>generos</div>
+                            <div>
+                                {libro.generos.forEach((g) => {<p>{g} </p> } )}
+                            </div>
                             <p>{libro.autor}</p>
-                            <p>{libro.editorial} <span>{libro.ano}</span></p>
+                            <p>{libro.editorial} <span>- {libro.ano}</span></p>
                         </div>
                     </div>
                     <div>
@@ -38,6 +41,6 @@ export function Renderizar({resultado}) {
                     </div>
                 </section>
             ))}
-        </>)
+        </div>)
     }
 }
