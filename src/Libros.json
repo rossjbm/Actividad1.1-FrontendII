@@ -48,5 +48,15 @@
         "generos": ["comedia", "romance"],
         "precio":30,
         "unidades":8
+    },
+    {
+        "serial":"UC78Y734E",          
+        "titulo":"Coraline",
+        "autor":"Neil Gaiman",
+        "editorial":"Planeta",
+        "ano":2002,
+        "generos": ["terror"],
+        "precio":10,
+        "unidades":3
     }
 ]

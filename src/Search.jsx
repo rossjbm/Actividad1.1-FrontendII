@@ -1,21 +1,36 @@
 import { useState, useEffect } from "react"
 import { ResulSearch } from "./ResulSearch.jsx"
+import { Renderizar } from "./Renderizar.jsx";
 
-function Search({setResultado, setValor, valor}) {
+function Search({setResultado, setValor, valor, book, resultado}) {
+
+    const [resultado, setResultado] = useState([]);
+    const [valor, setValor] = useState("");
+    const [cargar, setCargar] = useState(false)
 
     //useEffect se ejecuta si ocurre un cambio en valor
     useEffect(() => {
         if (valor) {
+
+            setCargar(true)
             const timer = setTimeout(() => { //espera por si hay un cambio
                 console.log('vamos a buscar');
                 handleChange();
+                setCargar(false)
             }, 2000);
         
             return () => { //al cambiar el valor
                 console.log('hubo un cambio')
                 clearTimeout(timer); //limpiamos tiempo
                 setResultado([]); //limpiamos resultados
+                setCargar(true)
             };
+        } else {
+            console.log('no hay valor en el input. muestra todo')
+
+            setResultado(book)
+            setCargar(false)
+
         }
     }, [valor]);
 
@@ -24,12 +39,9 @@ function Search({setResultado, setValor, valor}) {
         console.log('enviando valor a al localstorage')
         console.log(valor)
 
-        const respuesta = ResulSearch(valor)
+        var respuesta = await ResulSearch(valor)
 
         setResultado(respuesta)
-
-        console.log('respuesta', respuesta)
-
     }
 
     return (<>
@@ -40,6 +52,18 @@ function Search({setResultado, setValor, valor}) {
                 <button  className="hover:bg-beige-200 border-l border-beige-800 m-0 px-3 w-full h-full">Mas</button>
             </div>
         </div>
+
+        {cargar ? (
+            <>
+                <p>cargando</p>
+            </>
+        ) : (
+            <>
+                <div>
+                    <Renderizar resultado={resultado} />
+                </div>
+            </>
+        )}
     </>)
 }
 
