@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { ResulSearch } from "./ResulSearch.jsx"
 import { Renderizar } from "./Renderizar.jsx";
 
-function Search({setResultado, setValor, valor, book, resultado}) {
+function Search({book}) {
 
     const [resultado, setResultado] = useState([]);
     const [valor, setValor] = useState("");
