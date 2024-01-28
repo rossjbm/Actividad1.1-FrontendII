@@ -23,14 +23,9 @@ export function Renderizar({resultado}) {
                             imagen
                             {/* va img */}
                         </div>
-                        <div>
-                            <h2>{libro.titulo}</h2>
-                            <div>
-                                {libro.generos.forEach((g) => {<p>{g} </p> } )}
-                            </div>
-                            <p>{libro.autor}</p>
-                            <p>{libro.editorial} <span>- {libro.ano}</span></p>
-                        </div>
+                        <div>{libro.generos.map(gama => (
+                            <p>{gama}</p>
+                        ))}</div>
                     </div>
                     <div>
                         <div>
