@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react"
+import { ResulSearch } from "./ResulSearch.jsx"
 
-function Search() {
-    const [resultado, setResultado] = useState([]);
-    const [valor, setValor] = useState("");
+function Search({setResultado, setValor, valor}) {
 
     //useEffect se ejecuta si ocurre un cambio en valor
     useEffect(() => {
@@ -17,8 +16,6 @@ function Search() {
                 clearTimeout(timer); //limpiamos tiempo
                 setResultado([]); //limpiamos resultados
             };
-        } else {
-            console.log('no hay un valor en el input')
         }
     }, [valor]);
 
@@ -27,7 +24,12 @@ function Search() {
         console.log('enviando valor a al localstorage')
         console.log(valor)
 
-        //AQUÍ IRÁ LA SECCIÓN PARA BUSCAR EN EL LOCALSTORAGE valor y filtrado
+        const respuesta = ResulSearch(valor)
+
+        setResultado(respuesta)
+
+        console.log('respuesta', respuesta)
+
     }
 
     return (<>
