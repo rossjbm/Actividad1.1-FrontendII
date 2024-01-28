@@ -1,0 +1,52 @@
+[
+    {
+        "serial":"AA56C79B2",          
+        "titulo":"The Poppy War",
+        "autor":"R.F. Kuang",
+        "editorial":"Penguin Libros",
+        "ano":2018,
+        "generos": ["ficcion", "historia", "drama"],
+        "precio":25,
+        "unidades":6
+    },
+    {
+        "serial":"AW3ED45TG",          
+        "titulo":"Alas de Sangre",
+        "autor":"Rebecca Yarros",
+        "editorial":"Planeta",
+        "ano":2023,
+        "generos": ["fantasia", "romance", "ficcion"],
+        "precio":30,
+        "unidades":8
+    },
+    {
+        "serial":"SFAT234K9",          
+        "titulo":"Misery",
+        "autor":"Stephen King",
+        "editorial":"Penguin Libros",
+        "ano":1987,
+        "generos": ["terror", "thriller"],
+        "precio":15,
+        "unidades":10
+    },
+    {
+        "serial":"CO9RT543D",          
+        "titulo":"Cress",
+        "autor":"Marissa Meyer",
+        "editorial":"Montena",
+        "ano":2014,
+        "generos": ["sci-fi", "fantasia"],
+        "precio":28,
+        "unidades":5
+    },
+    {
+        "serial":"B7GYC734E",          
+        "titulo":"Un Cuento Perfecto",
+        "autor":"Elisabet Benavent",
+        "editorial":"Suma",
+        "ano":2018,
+        "generos": ["comedia", "romance"],
+        "precio":30,
+        "unidades":8
+    }
+]
