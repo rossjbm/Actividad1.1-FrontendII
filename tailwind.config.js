@@ -13,6 +13,7 @@ export default {
       transparent: 'transparent',
       current: 'currentColor',
       'white': '#f9efdb',
+      'black': '#000000',
       'beige': {
         100: '#ebd9b4',
         200:"#e0dacc",

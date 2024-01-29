@@ -46,49 +46,51 @@ export function Filtrado({filtro, setFiltro, setFiltrado}) {
 
         <div className={activo ? "bg-beige-800 w-full h-full fixed top-0 left-0 flex items-center justify-center bg-opacity-50 transition-opacity duration-300" : "bg-blue-300 hidden"} >
             
-            <form className="flex flex-col gap-6 bg-beige-100 border-4 border-beige-800 shadow-xl rounded-xl min-w-96 w-1/2 p-5">
-                <div className="flex flex-row justify-between">
-                    <button onClick={(evento)=> {formActivo(evento, activo, setActivo); console.log(activo)}}>x</button>
-                    <p>Filtro</p>
-                    <span></span>
+            <form className="flex flex-col gap-6 bg-beige-100 border-4 border-beige-800 shadow-xl rounded-xl min-w-70 w-2/5 p-5">
+                <div className="flex flex-row justify-between items-center">
+                    <button onClick={(evento)=> {formActivo(evento, activo, setActivo); console.log(activo)}} className="flex items-center" ><span class="material-symbols-outlined">close</span></button>
+                    <p className=" text-2xl">Filtro</p>
+                    <span className="w-6"></span>
                 </div>
-                <label className="flex flex-col">
-                    <p>Autor</p>
-                    <input list="autorList" value={autor} name="autor" onChange={handleChange}></input>
+                <label className="flex flex-col gap-2">
+                    <p className=" text-center text-lg">Autor</p>
+                    <input list="autorList" value={autor} name="autor" onChange={handleChange} className="focus:outline-0 border border-beige-800 focus:bg-beige-200 py-1 px-2 rounded-xl text-sm"></input>
                 </label>
                 <datalist id="autorList">
                     {autores.map((a, i) => (<option value={a} key={i} > {a} </option>) )}
                 </datalist>
 
-                <label className="flex flex-col">
-                    <p >Editorial</p>
-                    <input list="editorialList" value={editorial} name="editorial" onChange={handleChange}></input>
+                <label className="flex flex-col gap-2">
+                    <p className=" text-center text-lg">Editorial</p>
+                    <input list="editorialList" value={editorial} name="editorial" onChange={handleChange} className="focus:outline-0 border border-beige-800 focus:bg-beige-200 py-1 px-2 rounded-xl text-sm"></input>
                 </label>
                 <datalist id="editorialList">
                     {editoriales.map((e, i) => (<option value={e} key={i} > {e} </option>) )}
                 </datalist>
 
-                <label className="flex flex-col">
-                    <p>Año</p>
-                    <div className="flex flex-row gap-3">
-                        <input type="number" value={desde} name="desde" placeholder="Desde..." onChange={handleChange} className="w-2/5"></input>
-                        <input type="number" value={hasta} name="hasta" placeholder="Hasta..." onChange={handleChange} className="w-2/5"></input>
+                <label className="flex flex-col gap-2">
+                    <p className=" text-center text-lg">Año</p>
+                    <div className="flex flex-row gap-3 justify-between">
+                        <input type="number" value={desde} name="desde" placeholder="Desde..." onChange={handleChange} className="w-2/5 focus:outline-0 border border-beige-800 focus:bg-beige-200 py-1 px-2 rounded-xl text-sm"></input>
+                        <input type="number" value={hasta} name="hasta" placeholder="Hasta..." onChange={handleChange} className="w-2/5 focus:outline-0 border border-beige-800 focus:bg-beige-200 py-1 px-2 rounded-xl text-sm"></input>
                     </div>
                 </label>
 
-                <div className="flex flex-col">
-                    <p>Géneros</p>
-                    {todosGeneros.map((g, i) => ( 
-                        <label className=""> 
-                            <input type="checkbox" name="generos" value={g} onChange={handleChange} checked={generos.includes(g)} ></input> 
-                            {g} 
-                        </label> 
-                    ))}
+                <div className="flex flex-col gap-2">
+                    <p className=" text-center text-lg">Géneros</p>
+                    <div className="flex flex-wrap justify-center p-1">
+                        {todosGeneros.map((g, i) => ( 
+                            <label className={`m-1 p-1 rounded-3xl ${generos.includes(g) ? 'bg-green-100' : 'border border-beige-800 bg-white'}`} > 
+                                <input type="checkbox" name="generos" value={g} onChange={handleChange} checked={generos.includes(g)} className="hidden"></input> 
+                                <span className="text-sm">{g}</span> 
+                            </label> 
+                        ))}
+                    </div>
                 </div>
 
-                <div className="flex flex-row justify-around">
-                    <button onClick={(evento) => Aplicar(evento, setFiltro, filtro, autor, editorial, desde, hasta, generos, setFiltrado )}>Aplicar</button>
-                    <button onClick={(evento)=>Quitar(evento, setFiltro, setAutor, setEditorial, setDesde, setHasta, setGeneros, setFiltrado)}>Quitar</button>
+                <div className="flex flex-row justify-around my-2">
+                    <button onClick={(evento) => Aplicar(evento, setFiltro, filtro, autor, editorial, desde, hasta, generos, setFiltrado )} className="bg-white px-3 py-2 rounded-xl border border-beige-800  active:bg-beige-800 active:text-white">Aplicar</button>
+                    <button onClick={(evento)=>Quitar(evento, setFiltro, setAutor, setEditorial, setDesde, setHasta, setGeneros, setFiltrado)} className="bg-beige-800 px-3 py-2 rounded-xl border border-beige-800 text-white active:bg-white active:text-black">Quitar</button>
                 </div>
             </form>
         </div>
