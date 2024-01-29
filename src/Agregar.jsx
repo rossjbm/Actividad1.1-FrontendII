@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export function ButtonAdd() {
+export function ButtonAdd({book, setBook}) {
     const[Agregando,setAgregando]=useState(false)
 
     const [sci_fi, setSci_fi] = useState(false);
@@ -61,7 +61,7 @@ export function ButtonAdd() {
             <div className="flex w-full h-full place-content-evenly">
                 <button onClick={(buttonEvent)=>{buttonEvent.preventDefault(),Buttons('Cancelar',sci_fi, setSci_fi,romance, setRomance,fantasía, setFantasía,ficción, setFicción,terror, setTerror,thriller, setThriller,historia, setHistoria,drama, setDrama,comedia, setComedia,Agregando,setAgregando)}}>Cancelar</button>
                 <button onClick={(buttonEvent)=>{buttonEvent.preventDefault(),Buttons('Limpiar',sci_fi, setSci_fi,romance, setRomance,fantasía, setFantasía,ficción, setFicción,terror, setTerror,thriller, setThriller,historia, setHistoria,drama, setDrama,comedia, setComedia,Agregando,setAgregando)}}>Limpiar</button>
-                <button onClick={(buttonEvent)=>{buttonEvent.preventDefault(),Buttons('Guardar',sci_fi, setSci_fi,romance, setRomance,fantasía, setFantasía,ficción, setFicción,terror, setTerror,thriller, setThriller,historia, setHistoria,drama, setDrama,comedia, setComedia,Agregando,setAgregando) }}>Agregar</button>
+                <button onClick={(buttonEvent)=>{buttonEvent.preventDefault(),Buttons('Guardar',sci_fi, setSci_fi,romance, setRomance,fantasía, setFantasía,ficción, setFicción,terror, setTerror,thriller, setThriller,historia, setHistoria,drama, setDrama,comedia, setComedia,Agregando,setAgregando,book,setBook) }}>Agregar</button>
             </div>
             
         </form>
@@ -69,7 +69,7 @@ export function ButtonAdd() {
     </>)
 }
 
-function Buttons(acción,sci_fi, setSci_fi,romance, setRomance,fantasía, setFantasía,ficción, setFicción,terror, setTerror,thriller, setThriller,historia, setHistoria,drama, setDrama,comedia, setComedia,Agregando,setAgregando) {
+function Buttons(acción,sci_fi, setSci_fi,romance, setRomance,fantasía, setFantasía,ficción, setFicción,terror, setTerror,thriller, setThriller,historia, setHistoria,drama, setDrama,comedia, setComedia,Agregando,setAgregando, book,setBook) {
     const get = function(id) {
         return document.getElementById(id);
     }
@@ -156,12 +156,15 @@ function Buttons(acción,sci_fi, setSci_fi,romance, setRomance,fantasía, setFan
         if (drama==true){generos.push('drama')}
         if (comedia==true){generos.push('comedia')}
         var guardado ={serial,titulo,autor,editorial,generos,img,ano,unidades,precio}
-            //guardar en localStorage
-        var local = JSON.parse(localStorage.getItem('book'))
+            //guardar en el estado localStorage
+        // var local = JSON.parse(localStorage.getItem('book'))
+        // local.push(guardado)
+        // localStorage.setItem('book',JSON.stringify(local))
+        var local = book
         local.push(guardado)
-        localStorage.setItem('book',JSON.stringify(local))
+        setBook(local)
             //cerramos el popUp
-            setAgregando(false);
+        setAgregando(false);
     }
 }
  

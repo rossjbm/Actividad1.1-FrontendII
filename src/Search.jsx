@@ -4,7 +4,7 @@ import { Renderizar } from "./Renderizar.jsx";
 import { ButtonAdd } from "./agregar.jsx";
 import { Filtrado } from "./Filtros.jsx";
 
-function Search({book}) {
+function Search({book, setBook}) {
 
     const [resultado, setResultado] = useState([]);
     const [valor, setValor] = useState("");
@@ -51,7 +51,7 @@ function Search({book}) {
         console.log('enviando valor a al localstorage')
         console.log(valor)
 
-        var respuesta = ResulSearch(valor)
+        var respuesta = ResulSearch(valor, book)
 
         if (filtrado) {
             var respuestaF = ResulFiltrado(respuesta, filtro)
@@ -63,11 +63,11 @@ function Search({book}) {
 
     return (<>
         <div className="w-3/5 p-4 flex justify-around gap-2 my-16 mx-auto bg-beige-100 rounded-xl shadow-xl">
-            <input type="text" placeholder="Ingresar título..." value={valor} onChange={(e) => {setValor(e.target.value)}} className="rounded-xl border border-beige-800 focus:outline-0 focus:bg-white py-2 px-3 w-9/12 bg-beige-200 text-beige-800"></input>
+            <input type="text" placeholder="Ingresar título..." value={valor} onChange={(e) => {setValor(e.target.value)}} className="rounded-xl border border-beige-800 focus:outline-0 focus:bg-white py-2 px-3 w-9/12 bg-beige-200 text-beige-800 text-lg font-textos placeholder:font-textos"></input>
 
             <div className=" w-1/5 flex justify-center">
                 <Filtrado filtro={filtro} setFiltro={setFiltro} setFiltrado={setFiltrado} />
-                <ButtonAdd/>
+                <ButtonAdd book={book} setBook={setBook} />
             </div>
         </div>
 

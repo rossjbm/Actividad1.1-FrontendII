@@ -1,8 +1,8 @@
 
-export function ResulSearch(valor) {
-    var todos = JSON.parse(localStorage.getItem('book'));
+export function ResulSearch(valor, book) {
+    // var todos = JSON.parse(localStorage.getItem('book'));
 
-    var respuesta = todos.filter(libro => libro.titulo.toLowerCase().startsWith(valor.toLowerCase()))
+    var respuesta = book.filter(libro => libro.titulo.toLowerCase().startsWith(valor.toLowerCase()))
 
 
     return respuesta
