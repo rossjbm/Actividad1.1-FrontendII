@@ -13,7 +13,7 @@ function Search({book, setBook}) {
     //estados para filtros
     const [filtro, setFiltro] = useState({autor:"", editorial:"", desde:"", hasta:"", generos:[]});
     const [filtrado, setFiltrado] = useState(false)
-
+    // para agregar libro
     const[Agregando,setAgregando]=useState(false)
 
     console.log(filtrado)

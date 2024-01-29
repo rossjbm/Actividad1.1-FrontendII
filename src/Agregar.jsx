@@ -169,7 +169,6 @@ function Buttons(acción,sci_fi, setSci_fi,romance, setRomance,fantasía, setFan
 }
  
 function AgregarAlternar(Agregando,setAgregando) {
-    console.log('Chingasumare', Agregando);
     if (Agregando==false) {
         setAgregando(true);
     }else{

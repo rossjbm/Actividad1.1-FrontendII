@@ -1,3 +1,5 @@
+import { ButtonEdit } from "./Edit";
+
 export function Renderizar({resultado}) {
 
     console.log(typeof resultado);
@@ -12,7 +14,7 @@ export function Renderizar({resultado}) {
                     <div className="flex justify-between items-center px-5 pt-5">
                         <p className="text-base font-numeros">{libro.serial}</p>
                         <div className="flex gap-3">
-                            <button className=" rounded-full bg-button-100 p-1 flex items-center hover:outline-dashed hover:outline-2 hover:outline-button-100 active:bg-beige-100"><span class="material-symbols-outlined">edit</span></button>
+                            <ButtonEdit />
                             <button className=" rounded-full bg-button-200 p-1 flex items-center hover:outline-dashed hover:outline-2 hover:outline-button-200 active:bg-beige-100"><span class="material-symbols-outlined">delete</span></button>
                         </div>
                     </div>
