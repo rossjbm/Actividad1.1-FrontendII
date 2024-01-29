@@ -1,3 +1,4 @@
+import { ButtonDelete } from "./Delete";
 import { ButtonEdit } from "./Edit";
 
 export function Renderizar({resultado , book , setBook}) {
@@ -15,7 +16,7 @@ export function Renderizar({resultado , book , setBook}) {
                         <p className="text-base font-numeros">{libro.serial}</p>
                         <div className="flex gap-3">
                             <ButtonEdit book={book} setBook={setBook} libro={libro} i={i} />   
-                            <button className=" rounded-full bg-button-200 p-1 flex items-center hover:outline-dashed hover:outline-2 hover:outline-button-200 active:bg-beige-100"><span class="material-symbols-outlined">delete</span></button>
+                            <ButtonDelete book={book} setBook={setBook} i={i}  />
                         </div>
                     </div>
                     <div className="flex flex-col justify-center gap-4 items-start px-5 sm:flex-row sm:justify-start">
