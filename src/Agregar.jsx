@@ -22,46 +22,52 @@ export function ButtonAdd({book, setBook, Agregando, setAgregando}) {
     }
 
     return(<>
-    <button className="hover:bg-beige-200 px-3 m-0 h-full w-full"><span onClick={()=>{ console.log('aaa');AgregarAlternar(Agregando,setAgregando)}} style={{fontSize:"2.5em"}} class="material-symbols-outlined">add</span></button>
-    <div className={ Agregando ? "fixed w-full h-full top-0 left-0 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300 visible" : "flex flex-wrap fixed opacity-0 invisible overflow-hidden w-0 h-0"} >
-        <form className="flex items-center bg-beige-100 border-4 p-3 border-solid rounded-2xl min-w-96 w-1/2 flex-col">
-            <label className="text-center pb-2 pt-4 px-2" >Titulo
-            <input className="mx-4" type="text" id="Titulo" />
-            </label>
-            <label className="text-center py-2 px-1">Portada en URL
-            <input className="mx-4" type="url" id="Portada" placeholder='https://' />
-            </label>
-            <fieldset className="flex justify-around flex-wrap max-w-md" >
-                <legend className="block text-center ">Géneros</legend>
-                <input className={`px-3 py-1.5 border-2 rounded-xl border-beige-800 ${sci_fi? 'bg-beige-800' : ' bg-white '} `} type="button" onClick={()=>{handleClick(sci_fi,setSci_fi)}} value="sci-fi" />
-                <input className={`px-3 py-1.5 border-2 rounded-xl border-beige-800 ${romance? 'bg-beige-800' : ' bg-white '} `} type="button" onClick={()=>{handleClick(romance,setRomance)}} value="romance" />
-                <input className={`px-3 py-1.5 border-2 rounded-xl border-beige-800 ${fantasía? 'bg-beige-800' : ' bg-white '} `}type="button" onClick={()=>{handleClick(fantasía,setFantasía)}} value="fantasía" />
-                <input className={`px-3 py-1.5 border-2 rounded-xl border-beige-800 ${ficción? 'bg-beige-800' : ' bg-white '} `}type="button" onClick={()=>{handleClick(ficción, setFicción)}} value="ficción" />
-                <input className={`px-3 py-1.5 border-2 rounded-xl border-beige-800 ${terror? 'bg-beige-800' : ' bg-white '} `}type="button" onClick={()=>{handleClick(terror, setTerror)}} value="terror" />
-                <input className={`px-3 py-1.5 border-2 rounded-xl border-beige-800 ${thriller? 'bg-beige-800' : ' bg-white '} `}type="button" onClick={()=>{handleClick(thriller, setThriller)}} value="thriller" />
-                <input className={`px-3 py-1.5 border-2 rounded-xl border-beige-800 ${historia? 'bg-beige-800' : ' bg-white '} `}type="button" onClick={()=>{handleClick(historia, setHistoria)}} value="historia" />
-                <input className={`px-3 py-1.5 border-2 rounded-xl border-beige-800 ${drama? 'bg-beige-800' : ' bg-white '} `}type="button" onClick={()=>{handleClick(drama, setDrama)}} value="drama" />
-                <input className={`px-3 py-1.5 border-2 rounded-xl border-beige-800 ${comedia? 'bg-beige-800' : ' bg-white '} `}type="button" onClick={()=>{handleClick(comedia, setComedia)}} value="comedia" />
-            </fieldset>
-            <label className="text-center py-2 px-1">Autor
-            <input className="mx-4" type="text" id="Autor" />
-            </label>
-            <label className="text-center py-2 px-1">Editorial
-            <input className="mx-4" type="text" id="Editorial" />
-            </label>
-            <label className="text-center py-2 px-1">Año de publicación
-            <input className="mx-4" type="number" id="Año" placeholder='2024' />
-            </label>
-            <label className="text-center py-2 px-1">Disponibles
-            <input className="mx-4" type="number" id="Disponibles" />
-            </label>
-            <label className="text-center pt-2 pb-4 px-1">Precio
-            <input className="mx-4" type="number" id="Precio" />
-            </label>
-            <div className="flex w-full h-full place-content-evenly">
-                <button onClick={(buttonEvent)=>{buttonEvent.preventDefault(),Buttons('Cancelar',sci_fi, setSci_fi,romance, setRomance,fantasía, setFantasía,ficción, setFicción,terror, setTerror,thriller, setThriller,historia, setHistoria,drama, setDrama,comedia, setComedia,Agregando,setAgregando)}}>Cancelar</button>
-                <button onClick={(buttonEvent)=>{buttonEvent.preventDefault(),Buttons('Limpiar',sci_fi, setSci_fi,romance, setRomance,fantasía, setFantasía,ficción, setFicción,terror, setTerror,thriller, setThriller,historia, setHistoria,drama, setDrama,comedia, setComedia,Agregando,setAgregando)}}>Limpiar</button>
-                <button onClick={(buttonEvent)=>{buttonEvent.preventDefault(),Buttons('Guardar',sci_fi, setSci_fi,romance, setRomance,fantasía, setFantasía,ficción, setFicción,terror, setTerror,thriller, setThriller,historia, setHistoria,drama, setDrama,comedia, setComedia,Agregando,setAgregando,book,setBook) }}>Agregar</button>
+    <button className="hover:bg-beige-200 px-3 m-0 h-full w-full hover:rounded-r-lg"><span onClick={()=>{ console.log('aaa');AgregarAlternar(Agregando,setAgregando)}} style={{fontSize:"2.3em"}} class="material-symbols-outlined">add</span></button>
+    <div className={Agregando ? "bg-beige-800 w-full h-full sm:fixed absolute sm:top-0 left-0 flex items-center justify-center bg-opacity-50 transition-opacity duration-300" : "hidden"} >
+        <form className="flex flex-col items-center bg-beige-100 border-4 p-6 border-beige-800 shadow-xl rounded-2xl w-11/12 md:w-3/4 gap-6">
+            <div className="flex md:flex-row flex-col gap-4">
+            <div className="sm:w-1/2 flex flex-col gap-2 ">
+                <label className="text-center py-2 px-1 flex flex-col" ><p className=" text-center text-lg font-textos">Título</p>
+                <input className="focus:outline-0 border border-beige-800 focus:bg-beige-200 py-1 px-2 rounded-xl text-sm" type="text" id="Titulo" />
+                </label>
+                <label className="text-center py-2 px-1 flex flex-col"><p className=" text-center text-lg font-textos">Portada en URL</p>
+                <input className="focus:outline-0 border border-beige-800 focus:bg-beige-200 py-1 px-2 rounded-xl text-sm font-numeros" type="url" id="Portada" placeholder='https://' />
+                </label>
+                <fieldset className="flex flex-wrap justify-center p-1" >
+                    <legend className="block text-center text-lg font-textos">Géneros</legend>
+                    <input className={`m-1 p-1 rounded-3xl ${sci_fi? 'bg-beige-800 text-white' : 'border border-beige-800 bg-white'} `} type="button" onClick={()=>{handleClick(sci_fi,setSci_fi)}} value="sci-fi" />
+                    <input className={`m-1 p-1 rounded-3xl ${romance? 'bg-beige-800 text-white' : 'border border-beige-800 bg-white '} `} type="button" onClick={()=>{handleClick(romance,setRomance)}} value="romance" />
+                    <input className={`m-1 p-1 rounded-3xl ${fantasía? 'bg-beige-800 text-white' : 'border border-beige-800 bg-white'} `}type="button" onClick={()=>{handleClick(fantasía,setFantasía)}} value="fantasía" />
+                    <input className={`m-1 p-1 rounded-3xl ${ficción? 'bg-beige-800 text-white' : 'border border-beige-800 bg-white'} `}type="button" onClick={()=>{handleClick(ficción, setFicción)}} value="ficción" />
+                    <input className={`m-1 p-1 rounded-3xl ${terror? 'bg-beige-800 text-white' : 'border border-beige-800 bg-white'} `}type="button" onClick={()=>{handleClick(terror, setTerror)}} value="terror" />
+                    <input className={`m-1 p-1 rounded-3xl ${thriller? 'bg-beige-800 text-white' : 'border border-beige-800 bg-white'} `}type="button" onClick={()=>{handleClick(thriller, setThriller)}} value="thriller" />
+                    <input className={`m-1 p-1 rounded-3xl ${historia? 'bg-beige-800 text-white' : 'border border-beige-800 bg-white'} `}type="button" onClick={()=>{handleClick(historia, setHistoria)}} value="historia" />
+                    <input className={`m-1 p-1 rounded-3xl ${drama? 'bg-beige-800 text-white' : 'border border-beige-800 bg-white'} `}type="button" onClick={()=>{handleClick(drama, setDrama)}} value="drama" />
+                    <input className={`m-1 p-1 rounded-3xl ${comedia? 'bg-beige-800 text-white' : 'border border-beige-800 bg-white'} `}type="button" onClick={()=>{handleClick(comedia, setComedia)}} value="comedia" />
+                </fieldset>
+            </div>
+            <div className="sm:w-1/2 flex flex-col gap-3">
+                <label className="text-center py-2 px-1 flex flex-col"><p className=" text-center text-lg font-textos">Autor</p>
+                <input className="focus:outline-0 border border-beige-800 focus:bg-beige-200 py-1 px-2 rounded-xl text-sm" type="text" id="Autor" />
+                </label>
+                <label className="text-center py-2 px-1 flex flex-col"><p className=" text-center text-lg font-textos">Editorial</p>
+                <input className="focus:outline-0 border border-beige-800 focus:bg-beige-200 py-1 px-2 rounded-xl text-sm" type="text" id="Editorial" />
+                </label>
+                <label className="text-center py-2 px-1 flex flex-col"><p className=" text-center text-lg font-textos">Año de Publicación</p>
+                <input className="focus:outline-0 border border-beige-800 focus:bg-beige-200 py-1 px-2 rounded-xl text-sm font-numeros" type="number" id="Año" placeholder='2024' />
+                </label>
+                <label className="text-center py-2 px-1 flex flex-col"><p className=" text-center text-lg font-textos">Disponibles</p>
+                <input className="focus:outline-0 border border-beige-800 focus:bg-beige-200 py-1 px-2 rounded-xl text-sm font-numeros" type="number" id="Disponibles" />
+                </label>
+                <label className="text-center pt-2 pb-4 px-1 flex flex-col"><p className=" text-center text-lg font-textos">Precio</p>
+                <input className="focus:outline-0 border border-beige-800 focus:bg-beige-200 py-1 px-2 rounded-xl text-sm font-numeros" type="number" id="Precio" />
+                </label>
+            </div>
+            </div>
+            <div className="flex w-3/5 h-full place-content-evenly sm:flex-row flex-col gap-3">
+                <button onClick={(buttonEvent)=>{buttonEvent.preventDefault(),Buttons('Cancelar',sci_fi, setSci_fi,romance, setRomance,fantasía, setFantasía,ficción, setFicción,terror, setTerror,thriller, setThriller,historia, setHistoria,drama, setDrama,comedia, setComedia,Agregando,setAgregando)}} className="bg-beige-800 px-3 py-2 rounded-xl border border-beige-800 text-white active:bg-white active:text-black font-numeros">Cancelar</button>
+                <button onClick={(buttonEvent)=>{buttonEvent.preventDefault(),Buttons('Limpiar',sci_fi, setSci_fi,romance, setRomance,fantasía, setFantasía,ficción, setFicción,terror, setTerror,thriller, setThriller,historia, setHistoria,drama, setDrama,comedia, setComedia,Agregando,setAgregando)}} className="bg-white px-3 py-2 rounded-xl border border-beige-800  active:bg-beige-800 active:text-white font-numeros" >Limpiar</button>
+                <button onClick={(buttonEvent)=>{buttonEvent.preventDefault(),Buttons('Guardar',sci_fi, setSci_fi,romance, setRomance,fantasía, setFantasía,ficción, setFicción,terror, setTerror,thriller, setThriller,historia, setHistoria,drama, setDrama,comedia, setComedia,Agregando,setAgregando,book,setBook) }} className="bg-beige-800 px-3 py-2 rounded-xl border border-beige-800 text-white active:bg-white active:text-black font-numeros" >Agregar</button>
             </div>
             
         </form>

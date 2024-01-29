@@ -64,10 +64,10 @@ function Search({book, setBook}) {
     }
 
     return (<>
-        <div className="w-3/5 p-4 flex justify-around gap-2 my-16 mx-auto bg-beige-100 rounded-xl shadow-xl">
-            <input type="text" placeholder="Ingresar título..." value={valor} onChange={(e) => {setValor(e.target.value)}} className="rounded-xl border border-beige-800 focus:outline-0 focus:bg-white py-2 px-3 w-9/12 bg-beige-200 text-beige-800 text-lg font-textos placeholder:font-textos"></input>
+        <div className=" w-11/12 sm:w-3/5 p-4 flex flex-col sm:flex-row justify-around gap-5 sm:gap-2 my-16 mx-auto bg-beige-100 rounded-xl shadow-xl">
+            <input type="text" placeholder="Ingresar título..." value={valor} onChange={(e) => {setValor(e.target.value)}} className="rounded-xl border border-beige-800 focus:outline-0 focus:bg-white py-2 px-3 sm:w-9/12 bg-beige-200 text-beige-800 text-lg font-textos placeholder:font-textos"></input>
 
-            <div className=" w-1/5 flex justify-center">
+            <div className=" sm:w-1/5 flex justify-center">
                 <Filtrado filtro={filtro} setFiltro={setFiltro} setFiltrado={setFiltrado} />
                 <ButtonAdd book={book} setBook={setBook} Agregando={Agregando} setAgregando={setAgregando} />
             </div>
@@ -75,7 +75,9 @@ function Search({book, setBook}) {
 
         {cargar ? (
             <>
-                <p>cargando</p>
+                <div class="flex justify-center items-center">
+                    <div class="w-16 h-16 border-t-4 border-beige-800 rounded-full animate-spin"></div>
+                </div>
             </>
         ) : (
             <>
