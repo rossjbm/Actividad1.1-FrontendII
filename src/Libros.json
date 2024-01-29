@@ -5,9 +5,10 @@
         "autor":"R.F. Kuang",
         "editorial":"Penguin Libros",
         "ano":2018,
-        "generos": ["ficcion", "historia", "drama"],
+        "generos": ["ficción", "historia", "drama"],
         "precio":25,
-        "unidades":6
+        "unidades":6,
+        "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1515691735i/35068705.jpg"
     },
     {
         "serial":"AW3ED45TG",          
@@ -15,9 +16,10 @@
         "autor":"Rebecca Yarros",
         "editorial":"Planeta",
         "ano":2023,
-        "generos": ["fantasia", "romance", "ficcion"],
+        "generos": ["fantasía", "romance", "ficción"],
         "precio":30,
-        "unidades":8
+        "unidades":8,
+        "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1689055697i/187622892.jpg"
     },
     {
         "serial":"SFAT234K9",          
@@ -27,7 +29,8 @@
         "ano":1987,
         "generos": ["terror", "thriller"],
         "precio":15,
-        "unidades":10
+        "unidades":10,
+        "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1554220401i/10614.jpg"
     },
     {
         "serial":"CO9RT543D",          
@@ -35,9 +38,10 @@
         "autor":"Marissa Meyer",
         "editorial":"Montena",
         "ano":2014,
-        "generos": ["sci-fi", "fantasia"],
+        "generos": ["sci-fi", "fantasía"],
         "precio":28,
-        "unidades":5
+        "unidades":5,
+        "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1470057005i/13206828.jpg"
     },
     {
         "serial":"B7GYC734E",          
@@ -47,7 +51,8 @@
         "ano":2018,
         "generos": ["comedia", "romance"],
         "precio":30,
-        "unidades":8
+        "unidades":8,
+        "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1574343045i/48907056.jpg"
     },
     {
         "serial":"UC78Y734E",          
@@ -57,6 +62,7 @@
         "ano":2002,
         "generos": ["terror"],
         "precio":10,
-        "unidades":3
+        "unidades":3,
+        "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1493497435i/17061.jpg"
     }
 ]
