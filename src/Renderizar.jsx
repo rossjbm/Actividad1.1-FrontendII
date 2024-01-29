@@ -1,5 +1,3 @@
-var gene;
-
 export function Renderizar({resultado}) {
 
     console.log(typeof resultado);
@@ -21,11 +19,10 @@ export function Renderizar({resultado}) {
                     <div className="flex gap-4 items-start">
                         <div className=" bg-blue-300 w-4/12 min-h-40 flex items-center">
                             <img src={libro.img} className="w-full"></img>
-                            {console.log(libro.img)}
                         </div>
                         <div className="flex flex-col gap-y-2">
                             <h2 className="text-xl">{libro.titulo}</h2>
-                            <div className="flex flex-wrap justify-center gap-x-3 gap-y-1">{libro.generos.map(g => (<p className=" bg-blue-100 p-1 text-xs">{g}</p>))}</div>
+                            <div className="flex flex-wrap justify-center gap-x-3 gap-y-1">  {libro.generos.map((g, index) => (<p key={index} className=" bg-blue-100 p-1 text-xs">{g}</p>))} </div>
                             <p className="text-sm">{libro.autor}</p>
                             <p className="text-sm">{libro.editorial} <span>- {libro.ano}</span></p>
                         </div>

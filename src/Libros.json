@@ -64,5 +64,27 @@
         "precio":10,
         "unidades":3,
         "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1493497435i/17061.jpg"
+    },
+    {
+        "serial":"CO9RT543D",          
+        "titulo":"Winter",
+        "autor":"Marissa Meyer",
+        "editorial":"Montena",
+        "ano":2014,
+        "generos": ["sci-fi", "fantasía"],
+        "precio":28,
+        "unidades":5,
+        "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1470057005i/13206828.jpg"
+    },
+    {
+        "serial":"CO9RT543D",          
+        "titulo":"Cinder",
+        "autor":"Marissa Meyer",
+        "editorial":"Suma",
+        "ano":2014,
+        "generos": ["sci-fi", "fantasía", "romance"],
+        "precio":28,
+        "unidades":5,
+        "img": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1470057005i/13206828.jpg"
     }
 ]

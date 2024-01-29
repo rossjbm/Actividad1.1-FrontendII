@@ -1,13 +1,20 @@
 import { useState, useEffect } from "react"
-import { ResulSearch } from "./ResulSearch.jsx"
+import { ResulSearch, ResulFiltrado } from "./ResulSearch.js"
 import { Renderizar } from "./Renderizar.jsx";
 import { ButtonAdd } from "./agregar.jsx";
+import { Filtrado } from "./Filtros.jsx";
 
 function Search({book}) {
 
     const [resultado, setResultado] = useState([]);
     const [valor, setValor] = useState("");
     const [cargar, setCargar] = useState(false)
+
+    //estados para filtros
+    const [filtro, setFiltro] = useState({autor:"", editorial:"", desde:"", hasta:"", generos:[]});
+    const [filtrado, setFiltrado] = useState(false)
+
+    console.log(filtrado)
 
     //useEffect se ejecuta si ocurre un cambio en valor
     useEffect(() => {
@@ -29,27 +36,37 @@ function Search({book}) {
         } else {
             console.log('no hay valor en el input. muestra todo')
 
-            setResultado(book)
+            if (filtrado) {
+                var respuesta = ResulFiltrado(book, filtro)
+                setResultado(respuesta)
+            } else {
+                setResultado(book)
+            }
             setCargar(false)
-
         }
-    }, [valor]);
+    }, [valor, filtro]);
 
     //enviamos valor para buscar en el localstorage
     async function handleChange() {
         console.log('enviando valor a al localstorage')
         console.log(valor)
 
-        var respuesta = await ResulSearch(valor)
+        var respuesta = ResulSearch(valor)
 
-        setResultado(respuesta)
+        if (filtrado) {
+            var respuestaF = ResulFiltrado(respuesta, filtro)
+            setResultado(respuestaF)
+        } else {
+            setResultado(respuesta)
+        }
     }
 
     return (<>
         <div className="w-3/5 p-4 flex justify-around gap-2 my-16 mx-auto bg-beige-100 rounded-xl shadow-xl">
             <input type="text" placeholder="Ingresar título..." value={valor} onChange={(e) => {setValor(e.target.value)}} className="rounded-xl border border-beige-800 focus:outline-0 focus:bg-white py-2 px-3 w-9/12 bg-beige-200 text-beige-800"></input>
+
             <div className=" w-1/5 flex justify-center">
-                <button  className="hover:bg-beige-200 border-l border-beige-800 m-0 px-3 w-full h-full"><span style={{fontSize:"2.5em"}} class="material-symbols-outlined">tune</span></button>
+                <Filtrado filtro={filtro} setFiltro={setFiltro} setFiltrado={setFiltrado} />
                 <ButtonAdd/>
             </div>
         </div>
@@ -60,9 +77,7 @@ function Search({book}) {
             </>
         ) : (
             <>
-                <div>
-                    <Renderizar resultado={resultado} />
-                </div>
+                <Renderizar resultado={resultado} />
             </>
         )}
     </>)
