@@ -79,7 +79,7 @@ function Search({book, setBook}) {
             </>
         ) : (
             <>
-                <Renderizar resultado={resultado} />
+                <Renderizar resultado={resultado} book={book} setBook={setBook} />
             </>
         )}
     </>)

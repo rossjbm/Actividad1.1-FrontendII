@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export function ButtonEdit(Serial) {
+export function ButtonEdit(book, setBook,Serial) {
     const [editando,setEditando] = useState(false)
 
     const [sci_fi, setSci_fi] = useState(false);
@@ -59,7 +59,8 @@ export function ButtonEdit(Serial) {
     </>)
 
     function Buttons() {
-         
+        var local = book
+
     }
 
     function EditandoButton(editando,setEditando) {
