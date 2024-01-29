@@ -14,7 +14,7 @@ export function Renderizar({resultado , book , setBook}) {
                     <div className="flex justify-between items-center px-5 pt-5">
                         <p className="text-base font-numeros">{libro.serial}</p>
                         <div className="flex gap-3">
-                            <ButtonEdit book={book} setBook={setBook} />
+                            <ButtonEdit book={book} setBook={setBook} libro={libro} i={i} />   
                             <button className=" rounded-full bg-button-200 p-1 flex items-center hover:outline-dashed hover:outline-2 hover:outline-button-200 active:bg-beige-100"><span class="material-symbols-outlined">delete</span></button>
                         </div>
                     </div>
