@@ -2,6 +2,7 @@ import { useState } from "react"
 
 const autores = ["Agatha Christie", "Colleen Hoover","Dot Hutchison", "Elisabet Benavent", "Lorena Fuentes", "Marissa Meyer", "Nikki St. Crowe", "Neil Gaiman", "Rebecca Yarros", "R.F. Kuang", "Stephanie Graber", "Stephen King"]
 const editoriales = ["Anagrama", "Cátedra","Penguin Libros", "Planeta", "Montena", "Suma", "Bloomsbury"]
+const todosGeneros = ["sci-fi", "romance","fantasía", "ficción", "terror", "thriller", "historia", "drama", "comedia"]
 
 export function Filtrado({filtro, setFiltro, setFiltrado}) {
     const [activo, setActivo] = useState(false);
@@ -73,18 +74,10 @@ export function Filtrado({filtro, setFiltro, setFiltrado}) {
 
                 <div>
                     Géneros
-                    <label>
-                        <input type="checkbox" name="generos" value="romance" onChange={handleChange} checked={generos.includes("romance")} ></input>
-                        romance
-                    </label>
-                    <label>
-                        <input type="checkbox" name="generos" value="fantasía" onChange={handleChange} checked={generos.includes("fantasía")} ></input>
-                        fantasía
-                    </label>
-                    <label>
-                        <input type="checkbox" name="generos" value="comedia" onChange={handleChange} checked={generos.includes("comedia")} ></input>
-                        comedia
-                    </label>
+                    {todosGeneros.map((g, i) => ( <label> 
+                            <input type="checkbox" name="generos" value={g} onChange={handleChange} checked={generos.includes(g)} ></input> 
+                            {g} 
+                        </label> ) )}
                 </div>
 
                 <div>
