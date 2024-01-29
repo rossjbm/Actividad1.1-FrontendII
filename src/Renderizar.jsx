@@ -1,7 +1,7 @@
 import { ButtonDelete } from "./Delete";
 import { ButtonEdit } from "./Edit";
 
-export function Renderizar({resultado , book , setBook}) {
+export function Renderizar({resultado , book , setBook, eliminar, setEliminar}) {
 
     console.log(typeof resultado);
     console.log(resultado);
@@ -16,7 +16,7 @@ export function Renderizar({resultado , book , setBook}) {
                         <p className="text-base font-numeros">{libro.serial}</p>
                         <div className="flex gap-3">
                             <ButtonEdit book={book} setBook={setBook} libro={libro} i={i} />   
-                            <ButtonDelete book={book} setBook={setBook} i={i}  />
+                            <ButtonDelete book={book} setBook={setBook} i={i} eliminar={eliminar} setEliminar={setEliminar} />
                         </div>
                     </div>
                     <div className="flex flex-col justify-center gap-4 items-start px-5 sm:flex-row sm:justify-start">

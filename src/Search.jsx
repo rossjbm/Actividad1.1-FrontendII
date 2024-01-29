@@ -15,8 +15,7 @@ function Search({book, setBook}) {
     const [filtrado, setFiltrado] = useState(false)
     // para agregar libro
     const[Agregando,setAgregando]=useState(false)
-
-    console.log(filtrado)
+    const[eliminar,setEliminar]=useState(false)
 
     //useEffect se ejecuta si ocurre un cambio en valor
     useEffect(() => {
@@ -46,7 +45,7 @@ function Search({book, setBook}) {
             }
             setCargar(false)
         }
-    }, [valor, filtro, Agregando]);
+    }, [valor, filtro, Agregando, eliminar]);
 
     //enviamos valor para buscar en el localstorage
     async function handleChange() {
@@ -81,7 +80,7 @@ function Search({book, setBook}) {
             </>
         ) : (
             <>
-                <Renderizar resultado={resultado} book={book} setBook={setBook} />
+                <Renderizar resultado={resultado} book={book} setBook={setBook} eliminar={eliminar} setEliminar={setEliminar} />
             </>
         )}
     </>)
