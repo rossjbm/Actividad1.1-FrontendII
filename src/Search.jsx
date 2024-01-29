@@ -14,6 +14,8 @@ function Search({book, setBook}) {
     const [filtro, setFiltro] = useState({autor:"", editorial:"", desde:"", hasta:"", generos:[]});
     const [filtrado, setFiltrado] = useState(false)
 
+    const[Agregando,setAgregando]=useState(false)
+
     console.log(filtrado)
 
     //useEffect se ejecuta si ocurre un cambio en valor
@@ -44,7 +46,7 @@ function Search({book, setBook}) {
             }
             setCargar(false)
         }
-    }, [valor, filtro]);
+    }, [valor, filtro, Agregando]);
 
     //enviamos valor para buscar en el localstorage
     async function handleChange() {
@@ -67,7 +69,7 @@ function Search({book, setBook}) {
 
             <div className=" w-1/5 flex justify-center">
                 <Filtrado filtro={filtro} setFiltro={setFiltro} setFiltrado={setFiltrado} />
-                <ButtonAdd book={book} setBook={setBook} />
+                <ButtonAdd book={book} setBook={setBook} Agregando={Agregando} setAgregando={setAgregando} />
             </div>
         </div>
 

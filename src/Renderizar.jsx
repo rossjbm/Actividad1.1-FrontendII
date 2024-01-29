@@ -6,7 +6,7 @@ export function Renderizar({resultado}) {
     if (!resultado || resultado.length === 0) {
         return (<p>No Se Encontraron Resultados</p>)
     } else {
-        return (<div className="p-5 grid grid-cols-3 gap-5 px-10">
+        return (<div className="p-5 grid grid-cols-3 gap-10 px-10">
             {resultado.map((libro, i) => (
                 <section key={i} className="bg-beige-200 rounded-lg flex flex-col justify-between gap-5">
                     <div className="flex justify-between items-center px-5 pt-5">

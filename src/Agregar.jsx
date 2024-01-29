@@ -1,7 +1,7 @@
 import { useState } from "react"
 
-export function ButtonAdd({book, setBook}) {
-    const[Agregando,setAgregando]=useState(false)
+export function ButtonAdd({book, setBook, Agregando, setAgregando}) {
+    // const[Agregando,setAgregando]=useState(false)
 
     const [sci_fi, setSci_fi] = useState(false);
     const [romance, setRomance]= useState(false)
