@@ -1,9 +1,6 @@
 
 export function ResulSearch(valor, book) {
-    // var todos = JSON.parse(localStorage.getItem('book'));
-
     var respuesta = book.filter(libro => libro.titulo.toLowerCase().startsWith(valor.toLowerCase()))
-
 
     return respuesta
 }
@@ -14,7 +11,6 @@ export function ResulFiltrado(libros, filtro) {
 
     function autorF(libro){
         if (filtro.autor){
-            console.log(libro.generos.includes(filtro.generos))
             return libro.autor === filtro.autor
         }
         return libro
@@ -38,7 +34,6 @@ export function ResulFiltrado(libros, filtro) {
         }
         return libro;
     }
-
-    // console.log('filtro autor', filtro.editorial)
+    
     return respuesta
 }

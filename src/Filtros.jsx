@@ -14,11 +14,8 @@ export function Filtrado({filtro, setFiltro, setFiltrado}) {
     const [hasta, setHasta] = useState("");
     const [generos, setGeneros] = useState([]);
 
-    console.log(filtro)
     const handleChange = (e) => {
         const { name, value, checked } = e.target;
-        // console.log(name, value)
-        // console.log('filtros:', autor, editorial, desde, hasta, generos)
 
         switch (name) {
             case "autor":
@@ -107,7 +104,6 @@ function Aplicar(evento, setFiltro, filtro, autor, editorial, desde, hasta, gene
     evento.preventDefault();
     setFiltro({autor:autor, editorial:editorial, desde:desde, hasta:hasta, generos:generos})
     setFiltrado(true)
-    console.log(filtro)
 }
 
 function Quitar(evento, setFiltro, setAutor, setEditorial, setDesde, setHasta, setGeneros, setFiltrado) {

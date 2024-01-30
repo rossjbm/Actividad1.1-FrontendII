@@ -3,9 +3,6 @@ import { ButtonEdit } from "./Edit";
 
 export function Renderizar({resultado , book , setBook, eliminar, setEliminar}) {
 
-    console.log(typeof resultado);
-    console.log(resultado);
-
     if (!resultado || resultado.length === 0) {
         return (<p className="text-center font-textos text-xl text-beige-800">No Se Encontraron Resultados</p>)
     } else {

@@ -23,19 +23,16 @@ function Search({book, setBook}) {
 
             setCargar(true)
             const timer = setTimeout(() => { //espera por si hay un cambio
-                console.log('vamos a buscar');
                 handleChange();
                 setCargar(false)
             }, 2000);
         
             return () => { //al cambiar el valor
-                console.log('hubo un cambio')
                 clearTimeout(timer); //limpiamos tiempo
                 setResultado([]); //limpiamos resultados
                 setCargar(true)
             };
         } else {
-            console.log('no hay valor en el input. muestra todo')
 
             if (filtrado) {
                 var respuesta = ResulFiltrado(book, filtro)
@@ -49,9 +46,6 @@ function Search({book, setBook}) {
 
     //enviamos valor para buscar en el localstorage
     async function handleChange() {
-        console.log('enviando valor a al localstorage')
-        console.log(valor)
-
         var respuesta = ResulSearch(valor, book)
 
         if (filtrado) {
