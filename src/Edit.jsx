@@ -23,7 +23,6 @@ export function ButtonEdit({book, setBook,libro ,i}) {
 
     useEffect(()=>{
         libro.generos.forEach(e => {
-        console.log(e);
         if (e == 'sci-fi') {setSci_fi(true)}
         if (e == 'romance') {setRomance(true)}
         if (e == 'fantasía') {setFantasía(true)}
@@ -136,7 +135,6 @@ export function ButtonEdit({book, setBook,libro ,i}) {
     }
     function ButtonGuardar() {
         let nuevoBook = [...book]
-        console.log('aqui', nuevoBook);
         nuevoBook[i].titulo=titulo
         nuevoBook[i].img=img
         nuevoBook[i].autor=autor
