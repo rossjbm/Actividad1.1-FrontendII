@@ -3,7 +3,6 @@ export function ButtonDelete({book , setBook, i, eliminar, setEliminar}) {
 
     function ButtonD() {
         eliminar ? setEliminar(false) : setEliminar(true)
-        console.log('eliminar', eliminar)
         const nuevosLibro = book.filter((l,e)=>e!==i)
         setBook(nuevosLibro)
         

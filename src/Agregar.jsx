@@ -22,7 +22,7 @@ export function ButtonAdd({book, setBook, Agregando, setAgregando}) {
     }
 
     return(<>
-    <button className="hover:bg-beige-200 px-3 m-0 h-full w-full hover:rounded-r-lg"><span onClick={()=>{ console.log('aaa');AgregarAlternar(Agregando,setAgregando)}} style={{fontSize:"2.3em"}} class="material-symbols-outlined">add</span></button>
+    <button className="hover:bg-beige-200 px-3 m-0 h-full w-full hover:rounded-r-lg"><span onClick={()=>{AgregarAlternar(Agregando,setAgregando)}} style={{fontSize:"2.3em"}} class="material-symbols-outlined">add</span></button>
     <div className={Agregando ? "bg-beige-800 w-full h-full sm:fixed absolute sm:top-0 left-0 flex items-center justify-center bg-opacity-50 transition-opacity duration-300" : "hidden"} >
         <form className="flex flex-col items-center bg-beige-100 border-4 p-6 border-beige-800 shadow-xl rounded-2xl w-11/12 md:w-3/4 gap-6">
             <div className="flex md:flex-row flex-col gap-4">
