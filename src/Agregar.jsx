@@ -91,10 +91,16 @@ function Buttons(acción,sci_fi, setSci_fi,romance, setRomance,fantasía, setFan
     function generateSerial() {
         const possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         let serial = '';
-        for(let i = 0; i < 9; i++) {
-          serial += possible.charAt(Math.floor(Math.random() * possible.length));
-        }
+        do {
+            for(let i = 0; i < 9; i++) {
+                serial += possible.charAt(Math.floor(Math.random() * possible.length));
+            }
+        } while (comprobarSerial(serial));
         return serial;
+    }
+    
+    function comprobarSerial(Serial) {
+        return book.some(x => x.serial === Serial);
     }
 
     if(acción=='Cancelar'){
@@ -141,8 +147,9 @@ function Buttons(acción,sci_fi, setSci_fi,romance, setRomance,fantasía, setFan
     }
 
     if (acción=='Guardar') {
-            //obtener información de los input
+    
         const serial =generateSerial()
+            //obtener información de los input
         const titulo = titulo_get.value
         const autor = autor_get.value
         const editorial = editorial_get.value
@@ -150,6 +157,21 @@ function Buttons(acción,sci_fi, setSci_fi,romance, setRomance,fantasía, setFan
         const unidades = disponibles_get.value
         const precio = precio_get.value
         const img = portada_get.value
+
+        // comprobar
+        if (!titulo || !autor || !editorial || !ano || !unidades || !precio || !img) {
+            alert("Por favor, complete todos los campos obligatorios.");
+            return; // Detén la función si hay campos vacíos
+        }
+        const URL = new Image();
+        URL.onload = function() {
+          console.log('La URL es de una imagen');
+        };
+        URL.onerror = function() {
+          alert('La URL no es de una imagen')
+        };
+        URL.src = img;
+        
             //botones de genero, se revisa cuales son los que se pulsaron
         var generos = []
         if (sci_fi==true){generos.push('sci-fi')}
@@ -161,6 +183,13 @@ function Buttons(acción,sci_fi, setSci_fi,romance, setRomance,fantasía, setFan
         if (historia==true){generos.push('historia')}
         if (drama==true){generos.push('drama')}
         if (comedia==true){generos.push('comedia')}
+
+        //comprobar genero
+        if (generos.length==0) {
+            alert('elegir mínimo un genero')
+            return
+        }
+        
         var guardado ={serial,titulo,autor,editorial,generos,img,ano,unidades,precio}
             //guardar en el estado localStorage
         // var local = JSON.parse(localStorage.getItem('book'))
@@ -171,6 +200,24 @@ function Buttons(acción,sci_fi, setSci_fi,romance, setRomance,fantasía, setFan
         setBook(local)
             //cerramos el popUp
         setAgregando(false);
+
+        setSci_fi(false)
+        setComedia(false)
+        setDrama(false)
+        setFantasía(false)
+        setFicción(false)
+        setHistoria(false)
+        setRomance(false)
+        setTerror(false)
+        setThriller(false)
+
+        titulo_get.value=''
+        portada_get.value=''
+        autor_get.value=''
+        editorial_get.value=''
+        año_get.value=''
+        disponibles_get.value=''
+        precio_get.value=''
     }
 }
  

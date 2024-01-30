@@ -144,6 +144,20 @@ export function ButtonEdit({book, setBook,libro ,i}) {
         nuevoBook[i].ano=ano
         nuevoBook[i].unidades=unidades
         nuevoBook[i].precio=precio
+          // comprobar formulario
+        if (!titulo || !autor || !editorial || !ano || !unidades || !precio || !img) {
+            alert("Por favor, complete todos los campos obligatorios.");
+            return; // Detén la función si hay campos vacíos
+        }
+        const URL = new Image();
+        URL.onload = function() {
+          console.log('La URL es de una imagen');
+        };
+        URL.onerror = function() {
+          alert('La URL no es de una imagen')
+        };
+        URL.src = img
+
         var generos = []
         if (sci_fi==true){generos.push('sci-fi')}
         if (romance==true){generos.push('romance')}
@@ -154,6 +168,13 @@ export function ButtonEdit({book, setBook,libro ,i}) {
         if (historia==true){generos.push('historia')}
         if (drama==true){generos.push('drama')}
         if (comedia==true){generos.push('comedia')}
+
+          //comprobar genero
+        if (generos.length==0) {
+            alert('elegir mínimo un genero')
+            return
+        }
+        
         nuevoBook[i].generos=generos
         setBook(nuevoBook)
         setEditando(false)
