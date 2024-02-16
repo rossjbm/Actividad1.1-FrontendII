@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { ResulSearch, ResulFiltrado } from "./ResulSearch.js"
 import { Renderizar } from "./Renderizar.jsx";
-import { ButtonAdd } from "./agregar.jsx";
+import { ButtonAdd } from "./Agregar.jsx";
 import { Filtrado } from "./Filtros.jsx";
 
 function Search({book, setBook}) {
